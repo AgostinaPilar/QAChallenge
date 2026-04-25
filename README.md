@@ -24,12 +24,27 @@ Se implementó un framework basado en **Page Object Model (POM)** utilizando Pla
 ```
 qa-challenge/
 │
-├── pages/           # Page Objects
-├── tests/           # Test specs
-├── utils/           # Datos y helpers
+├── features/
+│   ├── checkout.feature
+│   └── cart.feature
+│
+├── steps/
+│   ├── common.steps.ts
+│   ├── cart.steps.ts
+│   └── checkout.steps.ts
+│
+├── pages/
+│   ├── LoginPage.ts
+│   ├── InventoryPage.ts
+│   ├── CartPage.ts
+│   └── CheckoutPage.ts
+│
+├── support/
+│   └── world.ts
+│
 ├── playwright.config.ts
-├── package.json
-└── README.md
+├── cucumber.js
+└── package.json
 ```
 
 ---
