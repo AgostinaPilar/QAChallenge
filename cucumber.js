@@ -3,6 +3,12 @@ module.exports = {
     paths: ['features/**/*.feature'],
     require: ['steps/**/*.ts', 'support/**/*.ts'],
     requireModule: ['ts-node/register'],
-    format: ['progress', 'html:reports/cucumber-report.html'],
+    format: [
+      './support/formatters/prettyStepFormatter.js',
+      'allure-cucumberjs/reporter:reports/allure-output.txt',
+    ],
+    formatOptions: {
+      resultsDir: 'allure-results',
+    },
   },
 };

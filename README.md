@@ -192,6 +192,7 @@ Feature: Checkout
 * **Allure Reports**: reportes detallados con sub-steps, screenshots y tiempos
 * **Custom Formatter**: output en consola con detalle de cada step y resumen final
 * Cobertura de escenarios positivos y negativos
+* Código limpio y reutilizable
 
 ---
 
