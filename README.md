@@ -30,22 +30,27 @@ vmetrixChallenge/
 ├── config/
 │   └── env.ts                 # Variables de entorno centralizadas
 │
-├── features/                  # Archivos .feature UI (Gherkin)
-│   ├── cart.feature
-│   ├── chekout.feature
-│   └── home.feature
-│
-├── steps/                     # Step definitions UI
-│   ├── common.ts
-│   ├── cart.ts
-│   ├── checkout.ts
-│   └── home.ts
-│
-├── pages/                     # Page Objects (POM)
-│   ├── LoginPage.ts
-│   ├── InventoryPage.ts
-│   ├── CartPage.ts
-│   └── CheckoutPage.ts
+├── frontend/                  # UI Testing
+│   ├── features/
+│   │   ├── cart.feature
+│   │   ├── chekout.feature
+│   │   └── home.feature
+│   ├── steps/
+│   │   ├── common.ts
+│   │   ├── cart.ts
+│   │   ├── checkout.ts
+│   │   └── home.ts
+│   ├── pages/
+│   │   ├── LoginPage.ts
+│   │   ├── InventoryPage.ts
+│   │   ├── CartPage.ts
+│   │   └── CheckoutPage.ts
+│   ├── support/
+│   │   ├── world.ts
+│   │   ├── allureSetup.ts
+│   │   └── formatters/
+│   │       └── prettyStepFormatter.js
+│   └── cucumber.js
 │
 ├── backend/                   # API Testing
 │   ├── features/
@@ -56,26 +61,19 @@ vmetrixChallenge/
 │   │   └── users/
 │   │       └── users.feature
 │   ├── steps/
-│   │   ├── common.steps.ts    # Validaciones compartidas
+│   │   ├── common.steps.ts
 │   │   ├── auth.steps.ts
 │   │   └── products.steps.ts
 │   ├── support/
-│   │   ├── apiWorld.ts        # World con APIRequestContext
+│   │   ├── apiWorld.ts
 │   │   ├── allureSetup.ts
 │   │   └── hooks.ts
 │   └── cucumber.js
-│
-├── support/
-│   ├── world.ts
-│   ├── allureSetup.ts
-│   └── formatters/
-│       └── prettyStepFormatter.js
 │
 ├── utils/
 │   └── allureLogger.ts
 │
 ├── .env                       # Credenciales y configuración
-├── cucumber.js
 ├── tsconfig.json
 ├── package.json
 └── README.md
@@ -131,7 +129,7 @@ npm run test:cucumber
 Ejecutar un caso específico:
 
 ```bash
-npx cucumber-js --name "Agregar un producto al carrito"
+npx cucumber-js --config frontend/cucumber.js --name "Agregar un producto al carrito"
 ```
 
 Ejecutar UI + abrir reporte Allure:

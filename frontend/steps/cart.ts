@@ -2,7 +2,8 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { CustomWorld } from '../support/world';
 import { InventoryPage } from '../pages/InventoryPage';
-import { allureStep } from '../utils/allureLogger';
+import { allureStep } from '../../utils/allureLogger';
+
 When('el usuario hace click en {string} de un producto', async function (this: CustomWorld, _btn: string) {
   await allureStep(`Haciendo click en "${_btn}" del primer producto`, async () => {
     const inventory = new InventoryPage(this.page);
@@ -48,5 +49,3 @@ Then('el producto se elimina del carrito', async function (this: CustomWorld) {
     await expect(this.page.locator('.cart_item')).not.toBeVisible();
   });
 });
-
-

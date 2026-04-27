@@ -4,7 +4,7 @@ module.exports = {
     require: ['backend/steps/**/*.ts', 'backend/support/**/*.ts'],
     requireModule: ['ts-node/register'],
     format: [
-      './support/formatters/prettyStepFormatter.js',
+      './frontend/support/formatters/prettyStepFormatter.js',
       'allure-cucumberjs/reporter:reports/allure-api-output.txt',
     ],
     formatOptions: {

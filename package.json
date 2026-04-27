@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "npx playwright test",
-    "test:cucumber": "rm -rf allure-results && npx cucumber-js",
+    "test:cucumber": "rm -rf allure-results && npx cucumber-js --config frontend/cucumber.js",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:report": "npm run test:cucumber && npm run allure:generate && npm run allure:open",

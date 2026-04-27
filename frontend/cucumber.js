@@ -1,10 +1,10 @@
 module.exports = {
   default: {
-    paths: ['features/**/*.feature'],
-    require: ['steps/**/*.ts', 'support/**/*.ts'],
+    paths: ['frontend/features/**/*.feature'],
+    require: ['frontend/steps/**/*.ts', 'frontend/support/**/*.ts'],
     requireModule: ['ts-node/register'],
     format: [
-      './support/formatters/prettyStepFormatter.js',
+      './frontend/support/formatters/prettyStepFormatter.js',
       'allure-cucumberjs/reporter:reports/allure-output.txt',
     ],
     formatOptions: {

@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 import { CustomWorld } from '../support/world';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
-import { allureStep } from '../utils/allureLogger';
+import { allureStep } from '../../utils/allureLogger';
 
 Given('el usuario tiene productos en el carrito', async function (this: CustomWorld) {
   await allureStep('Agregando primer producto al carrito', async () => {
@@ -59,7 +59,6 @@ When('deja el campo First Name vacío', async function (this: CustomWorld) {
     await checkout.fillForm('', 'User', '1234');
   });
 });
-
 
 When('intenta continuar', async function (this: CustomWorld) {
   await allureStep('Haciendo click en Continue', async () => {

@@ -1,8 +1,8 @@
 import { Before, After, Given } from '@cucumber/cucumber';
 import { CustomWorld } from '../support/world';
 import { LoginPage } from '../pages/LoginPage';
-import { allureStep, allureAttach } from '../utils/allureLogger';
-import { ENV } from '../config/env';
+import { allureStep, allureAttach } from '../../utils/allureLogger';
+import { ENV } from '../../config/env';
 
 Before(async function (this: CustomWorld) {
   await this.init();
