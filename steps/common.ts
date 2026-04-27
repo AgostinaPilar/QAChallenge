@@ -2,6 +2,7 @@ import { Before, After, Given } from '@cucumber/cucumber';
 import { CustomWorld } from '../support/world';
 import { LoginPage } from '../pages/LoginPage';
 import { allureStep, allureAttach } from '../utils/allureLogger';
+import { ENV } from '../config/env';
 
 Before(async function (this: CustomWorld) {
   await this.init();
@@ -22,10 +23,10 @@ After(async function (this: CustomWorld, { result }) {
 
 Given('el usuario está logueado', async function (this: CustomWorld) {
   await allureStep('Navegando a saucedemo.com', async () => {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto(ENV.UI.BASE_URL);
   });
-  await allureStep('Ingresando credenciales: standard_user', async () => {
+  await allureStep(`Ingresando credenciales: ${ENV.UI.USERNAME}`, async () => {
     const login = new LoginPage(this.page);
-    await login.login('standard_user', 'secret_sauce');
+    await login.login(ENV.UI.USERNAME, ENV.UI.PASSWORD);
   });
 });

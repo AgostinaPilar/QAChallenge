@@ -27,6 +27,9 @@ Se implementó un framework basado en **Cucumber + Playwright + Page Object Mode
 ```
 vmetrixChallenge/
 │
+├── config/
+│   └── env.ts                 # Variables de entorno centralizadas
+│
 ├── features/                  # Archivos .feature UI (Gherkin)
 │   ├── cart.feature
 │   ├── chekout.feature
@@ -71,6 +74,7 @@ vmetrixChallenge/
 ├── utils/
 │   └── allureLogger.ts
 │
+├── .env                       # Credenciales y configuración
 ├── cucumber.js
 ├── tsconfig.json
 ├── package.json
@@ -86,6 +90,12 @@ Clonar el repositorio:
 ```bash
 git clone <repo-url>
 cd vmetrixChallenge
+```
+
+Configurar variables de entorno:
+
+```bash
+cp .env.example .env
 ```
 
 Instalar dependencias:
@@ -136,6 +146,12 @@ Ejecutar todos los tests API:
 
 ```bash
 npm run test:api
+```
+
+Ejecutar un caso específico:
+
+```bash
+npx cucumber-js --config backend/cucumber.js --name "Login y obtener productos con token autenticado"
 ```
 
 Ejecutar API + abrir reporte Allure:

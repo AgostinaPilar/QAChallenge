@@ -1,5 +1,6 @@
 import { setWorldConstructor, World } from '@cucumber/cucumber';
 import { APIRequestContext, request } from 'playwright';
+import { ENV } from '../../config/env';
 
 export class ApiWorld extends World {
   api!: APIRequestContext;
@@ -8,7 +9,7 @@ export class ApiWorld extends World {
 
   async init() {
     this.api = await request.newContext({
-      baseURL: 'https://dummyjson.com',
+      baseURL: ENV.API.BASE_URL,
     });
   }
 

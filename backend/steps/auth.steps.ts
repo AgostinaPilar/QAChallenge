@@ -1,13 +1,14 @@
 import { When } from '@cucumber/cucumber';
 import { ApiWorld } from '../support/apiWorld';
 import { allureStep, allureAttach } from '../../utils/allureLogger';
+import { ENV } from '../../config/env';
 
 let accessToken: string;
 
-When('el usuario se autentica con usuario {string} y password {string}', async function (this: ApiWorld, user: string, pass: string) {
-  await allureStep(`Enviando POST /auth/login con usuario: ${user}`, async () => {
+When('el usuario se autentica con credenciales válidas', async function (this: ApiWorld) {
+  await allureStep(`Enviando POST /auth/login con usuario: ${ENV.API.USERNAME}`, async () => {
     this.response = await this.api.post('/auth/login', {
-      data: { username: user, password: pass, expiresInMins: 30 },
+      data: { username: ENV.API.USERNAME, password: ENV.API.PASSWORD, expiresInMins: 30 },
     });
     this.responseBody = await this.response.json();
   });
