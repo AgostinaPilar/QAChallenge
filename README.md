@@ -28,9 +28,9 @@ Se implementó un framework basado en **Cucumber + Playwright + Page Object Mode
 vmetrixChallenge/
 │
 ├── config/
-│   └── env.ts                 # Variables de entorno centralizadas
+│   └── env.ts                 
 │
-├── frontend/                  # UI Testing
+├── frontend/                  
 │   ├── features/
 │   │   ├── cart.feature
 │   │   ├── chekout.feature
@@ -52,7 +52,7 @@ vmetrixChallenge/
 │   │       └── prettyStepFormatter.js
 │   └── cucumber.js
 │
-├── backend/                   # API Testing
+├── backend/                   
 │   ├── features/
 │   │   ├── auth/
 │   │   │   └── auth.feature
@@ -73,7 +73,7 @@ vmetrixChallenge/
 ├── utils/
 │   └── allureLogger.ts
 │
-├── .env                       # Credenciales y configuración
+├── .env                       
 ├── tsconfig.json
 ├── package.json
 └── README.md
