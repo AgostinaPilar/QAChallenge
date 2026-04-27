@@ -7,7 +7,7 @@ Este repositorio contiene la resolución del challenge de QA Automation utilizan
 * 🖥️ UI: https://www.saucedemo.com
 * 🌐 API: https://dummyjson.com
 
-Se implementó un framework basado en **Cucumber + Playwright + Page Object Model (POM)** con TypeScript, reportes con **Allure** y logs detallados en consola.
+Se implementó un framework basado en **Cucumber + Playwright + Page Object Model (POM)** con TypeScript, reportes con **Allure**.
 
 ---
 
