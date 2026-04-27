@@ -2,9 +2,10 @@
 
 ## 📌 Descripción
 
-Este repositorio contiene la resolución del challenge de QA Automation utilizando pruebas **UI automatizadas** sobre la aplicación:
+Este repositorio contiene la resolución del challenge de QA Automation utilizando pruebas **UI automatizadas** y **API automatizadas**.
 
-👉 https://www.saucedemo.com
+* 🖥️ UI: https://www.saucedemo.com
+* 🌐 API: https://dummyjson.com
 
 Se implementó un framework basado en **Cucumber + Playwright + Page Object Model (POM)** con TypeScript, reportes con **Allure** y logs detallados en consola.
 
@@ -26,13 +27,13 @@ Se implementó un framework basado en **Cucumber + Playwright + Page Object Mode
 ```
 vmetrixChallenge/
 │
-├── features/                  # Archivos .feature (Gherkin)
+├── features/                  # Archivos .feature UI (Gherkin)
 │   ├── cart.feature
 │   ├── chekout.feature
 │   └── home.feature
 │
-├── steps/                     # Step definitions (Cucumber)
-│   ├── common.ts              # Hooks (Before/After) + login
+├── steps/                     # Step definitions UI
+│   ├── common.ts
 │   ├── cart.ts
 │   ├── checkout.ts
 │   └── home.ts
@@ -43,16 +44,34 @@ vmetrixChallenge/
 │   ├── CartPage.ts
 │   └── CheckoutPage.ts
 │
+├── backend/                   # API Testing
+│   ├── features/
+│   │   ├── auth/
+│   │   │   └── auth.feature
+│   │   ├── products/
+│   │   │   └── products.feature
+│   │   └── users/
+│   │       └── users.feature
+│   ├── steps/
+│   │   ├── common.steps.ts    # Validaciones compartidas
+│   │   ├── auth.steps.ts
+│   │   └── products.steps.ts
+│   ├── support/
+│   │   ├── apiWorld.ts        # World con APIRequestContext
+│   │   ├── allureSetup.ts
+│   │   └── hooks.ts
+│   └── cucumber.js
+│
 ├── support/
-│   ├── world.ts               # CustomWorld (browser/page)
-│   ├── allureSetup.ts         # Setup del runtime de Allure
+│   ├── world.ts
+│   ├── allureSetup.ts
 │   └── formatters/
-│       └── prettyStepFormatter.js  # Formatter custom para consola
+│       └── prettyStepFormatter.js
 │
 ├── utils/
-│   └── allureLogger.ts        # Helper para Allure (sub-steps + attachments)
+│   └── allureLogger.ts
 │
-├── cucumber.js                # Configuración de Cucumber
+├── cucumber.js
 ├── tsconfig.json
 ├── package.json
 └── README.md
@@ -91,7 +110,9 @@ brew install allure
 
 ## ▶️ Ejecución de tests
 
-Ejecutar todos los tests:
+### UI Tests
+
+Ejecutar todos los tests UI:
 
 ```bash
 npm run test:cucumber
@@ -103,56 +124,78 @@ Ejecutar un caso específico:
 npx cucumber-js --name "Agregar un producto al carrito"
 ```
 
-Ejecutar todos los tests + abrir reporte Allure:
+Ejecutar UI + abrir reporte Allure:
 
 ```bash
 npm run allure:report
 ```
 
-Ejecutar un caso específico + abrir reporte Allure:
+### API Tests
+
+Ejecutar todos los tests API:
 
 ```bash
-rm -rf allure-results allure-report && npx cucumber-js --name "Agregar un producto al carrito" && npm run allure:generate && npm run allure:open
+npm run test:api
+```
+
+Ejecutar API + abrir reporte Allure:
+
+```bash
+npm run allure:api
 ```
 
 ---
 
-## 📊 Reporte Allure
+## 📊 Reportes Allure
 
-Generar reporte:
+### UI
 
 ```bash
 npm run allure:generate
+npm run allure:open
 ```
 
-Abrir reporte:
+### API
 
 ```bash
-npm run allure:open
+npm run allure:api
 ```
 
 ---
 
 ## 🧪 Casos automatizados
 
-### 🛒 Carrito (cart.feature)
+### 🖥️ UI Tests (saucedemo.com)
+
+#### 🛒 Carrito (cart.feature)
 
 * ✔️ Agregar un producto al carrito
 * ✔️ Remover producto del carrito
-* ✔️ Visualizar cantidad correcta en carrito
-* ✔️ Acceder al carrito
 
-### 💳 Checkout (chekout.feature)
+#### 💳 Checkout (chekout.feature)
 
 * ✔️ Completar compra exitosamente
 * ✔️ Error al omitir First Name en checkout
-* ✔️ Error al omitir Postal Code en checkout
 
-### 🏠 Página principal (home.feature)
+#### 🏠 Página principal (home.feature)
 
 * ✔️ Visualizar detalle de producto
-* ✔️ Volver al listado desde detalle
-* ✔️ Ordenar productos por precio ascendente
+
+### 🌐 API Tests (dummyjson.com)
+
+#### 🔐 Autenticación (auth.feature)
+
+* ✔️ Login y obtener productos con token autenticado
+
+#### 📦 Productos (products.feature)
+
+* ✔️ Obtener un producto por ID
+* ✔️ Crear un nuevo producto
+* ✔️ Obtener producto inexistente
+
+#### 👤 Usuarios (users.feature)
+
+* ✔️ Obtener un usuario por ID
 
 ---
 

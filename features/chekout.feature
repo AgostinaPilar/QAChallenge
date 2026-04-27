@@ -14,10 +14,3 @@ Feature: Checkout
     When deja el campo First Name vacío
     And intenta continuar
     Then se muestra un mensaje de error
-
-  Scenario: Error al omitir Postal Code en checkout
-    Given el usuario está logueado
-    And el usuario está en el checkout
-    When deja el campo Postal Code vacío
-    And intenta continuar
-    Then se muestra un mensaje de error

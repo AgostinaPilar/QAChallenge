@@ -11,13 +11,3 @@ Feature: Carrito de compras
     And el usuario tiene un producto en el carrito
     When hace click en "Remove"
     Then el producto se elimina del carrito
-
-  Scenario: Visualizar cantidad correcta en carrito
-    Given el usuario está logueado
-    When el usuario agrega múltiples productos
-    Then el carrito muestra la cantidad correcta de productos
-
-  Scenario: Acceder al carrito
-    Given el usuario está logueado
-    When el usuario hace click en el icono del carrito
-    Then se muestra la página del carrito

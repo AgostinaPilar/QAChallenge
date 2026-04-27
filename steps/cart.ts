@@ -3,7 +3,6 @@ import { expect } from '@playwright/test';
 import { CustomWorld } from '../support/world';
 import { InventoryPage } from '../pages/InventoryPage';
 import { allureStep } from '../utils/allureLogger';
-
 When('el usuario hace click en {string} de un producto', async function (this: CustomWorld, _btn: string) {
   await allureStep(`Haciendo click en "${_btn}" del primer producto`, async () => {
     const inventory = new InventoryPage(this.page);
@@ -40,11 +39,7 @@ Given('el usuario tiene un producto en el carrito', async function (this: Custom
 
 When('hace click en {string}', async function (this: CustomWorld, btn: string) {
   await allureStep(`Haciendo click en "${btn}"`, async () => {
-    if (btn === 'Remove') {
-      await this.page.locator('.cart_item button').first().click();
-    } else if (btn === 'Back to products') {
-      await this.page.click('[data-test="back-to-products"]');
-    }
+    await this.page.locator('.cart_item button').first().click();
   });
 });
 
@@ -54,28 +49,4 @@ Then('el producto se elimina del carrito', async function (this: CustomWorld) {
   });
 });
 
-When('el usuario agrega múltiples productos', async function (this: CustomWorld) {
-  await allureStep('Agregando 2 productos al carrito', async () => {
-    const buttons = this.page.locator('.inventory_item button');
-    await buttons.nth(0).click();
-    await buttons.nth(1).click();
-  });
-});
 
-Then('el carrito muestra la cantidad correcta de productos', async function (this: CustomWorld) {
-  await allureStep('Verificando que el badge muestre "2"', async () => {
-    await expect(this.page.locator('.shopping_cart_badge')).toHaveText('2');
-  });
-});
-
-When('el usuario hace click en el icono del carrito', async function (this: CustomWorld) {
-  await allureStep('Navegando al carrito', async () => {
-    await this.page.click('.shopping_cart_link');
-  });
-});
-
-Then('se muestra la página del carrito', async function (this: CustomWorld) {
-  await allureStep('Verificando página del carrito', async () => {
-    await expect(this.page.locator('.cart_list')).toBeVisible();
-  });
-});

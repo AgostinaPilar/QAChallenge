@@ -6,4 +6,6 @@ test-results/
 
 allure-results/
 allure-report/
+allure-results-api/
+allure-report-api/
 reports/

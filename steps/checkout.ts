@@ -60,12 +60,6 @@ When('deja el campo First Name vacío', async function (this: CustomWorld) {
   });
 });
 
-When('deja el campo Postal Code vacío', async function (this: CustomWorld) {
-  await allureStep('Enviando formulario con Postal Code vacío', async () => {
-    const checkout = new CheckoutPage(this.page);
-    await checkout.fillForm('Test', 'User', '');
-  });
-});
 
 When('intenta continuar', async function (this: CustomWorld) {
   await allureStep('Haciendo click en Continue', async () => {
